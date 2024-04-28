@@ -17,7 +17,7 @@ export default function NotFound() {
       justifyContent="center"
       flexDirection="column"
     >
-      <Image src={"images/not_found.png"} alt="No page found" h={340} w={400} />
+      <Image src={"images/not-found.png"} alt="No page found" h={340} w={400} />
       <Heading
         color="black.1100"
         fontWeight="semibold"
