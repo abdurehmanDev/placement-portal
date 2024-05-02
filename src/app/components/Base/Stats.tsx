@@ -70,7 +70,7 @@ import {
             icon={<FiServer size={'3em'} />}
           />
           <StatsCard
-            title={"'CV'S/Resume'"}
+            title={"CV'S/Resume"}
             stat={'4'}
             icon={<BsPerson size={'3em'} />}
           />

@@ -8,8 +8,8 @@ export default function HeaderUnproc() {
         <Image
           src="images/iimt-logo.png"
           alt="college logo"
-          h={"56px"}
-          w={"180px"}
+          h={"80px"}
+          w={"110px"}
         />
       </Flex>
      );

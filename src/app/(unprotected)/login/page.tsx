@@ -9,13 +9,42 @@ import {
   Checkbox,
   Select,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import HeaderUnproc from "src/app/components/Base/HeaderUnproc";
 import InputControl from "src/app/components/Base/InputControl";
+import { auth, firebaseApp } from "src/app/services/firebase/config";
 
 export default function Login() {
-  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { push } = useRouter();
+  const toast = useToast();
+
+  const handleLogin = async () => {
+    try {
+     const res = await firebaseApp.auth().signInWithEmailAndPassword(email, password);
+     console.log(res?.user?.email);
+     setEmail("");
+      setPassword("");
+      push("/");
+      toast({
+        title: "Login Successful",
+        status: "success",
+        duration: 1000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        title: "Login Error",
+        status: "error",
+        duration: 1000,
+        isClosable: true,
+      });
+    }
+  };
 
   return (
     <Box minH={"100vh"}>
@@ -27,48 +56,56 @@ export default function Login() {
           </Stack>
           <Box rounded={"lg"} boxShadow={"lg"} p={8}>
             <Stack spacing={4}>
-              <Select
-                placeholder="Please select your role"
-                border="1px solid #c9c8c8"
-              >
-                <option value="admin">Admin</option>
-                <option value="placementCell">Placement cell</option>
-                <option value="student">Student</option>
-              </Select>
-              <InputControl
-                formId={"email"}
-                label={"Email address"}
-                type={"email"}
-              />
-              <InputControl
-                formId={"password"}
-                label={"Password"}
-                type={"password"}
-              />
-              <Stack spacing={10}>
-                <Stack
-                  direction={{ base: "column", sm: "row" }}
-                  align={"start"}
-                  justify={"space-between"}
+              <form>
+                {/* <Select
+                  placeholder="Please select your role"
+                  border="1px solid #c9c8c8"
                 >
-                  <Checkbox>Remember me</Checkbox>
-                  <Link color={"blue.400"}>Forgot password?</Link>
+                  <option value="admin">Admin</option>
+                  <option value="placementCell">Placement cell</option>
+                  <option value="student">Student</option>
+                </Select> */}
+                <InputControl
+                  formId={"email"}
+                  label={"Email address"}
+                  type={"email"}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <InputControl
+                  formId={"password"}
+                  label={"Password"}
+                  type={"password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <Stack spacing={10}>
+                  <Stack
+                    direction={{ base: "column", sm: "row" }}
+                    align={"start"}
+                    justify={"space-between"}
+                  >
+                    <Checkbox>Remember me</Checkbox>
+                    {/* <Link color={"blue.400"}>Forgot password?</Link> */}
+                  </Stack>
+                  <Button
+                    bg={"blue.400"}
+                    color={"white"}
+                    _hover={{
+                      bg: "blue.500",
+                    }}
+                    type="button"
+                    onClick={handleLogin}
+                  >
+                    Sign in
+                  </Button>
                 </Stack>
-                <Button
-                  bg={"blue.400"}
-                  color={"white"}
-                  _hover={{
-                    bg: "blue.500",
-                  }}
-                >
-                  Sign in
-                </Button>
-              </Stack>
+              </form>
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                New user?{" "}
-                <Link color={"blue.400"} onClick={() => router.push(`/signup`)}>
+                New user ?{" "}
+                <Link color={"blue.400"} onClick={() => push(`/signup`)}>
                   Sing Up
                 </Link>
               </Text>

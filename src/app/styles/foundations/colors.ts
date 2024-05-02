@@ -65,6 +65,7 @@ export const colors: Colors = {
     50: "#D8D8F4",
     100: "#6366F1",
     200: "#0A66C2",
+    300: "#2a13bf",
   },
   red: {
     100: "#FDF0F3",

@@ -2,8 +2,9 @@
 import ContactForm from "src/app/components/Base/ContactForm";
 import NavBar from "src/app/components/Base/NavBar";
 import Footer from "src/app/components/Base/Footer";
+import withAuth from "src/app/middleware/withAuth";
 
-export default function ContactUs() {
+function ContactUs() {
   return (
     <>
       <NavBar />
@@ -12,3 +13,5 @@ export default function ContactUs() {
     </>
   );
 }
+
+export default withAuth(ContactUs);
