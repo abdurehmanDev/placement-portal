@@ -37,7 +37,7 @@
 //             <Text as={"span"} color={"green.400"}>
 //                IIMT Placement Cell
 //             </Text>
-            
+
 //           </Heading>
 //           <Text color={"gray.500"}>For Your Entire Placement Journey.</Text>
 
@@ -66,9 +66,6 @@
 //   );
 // }
 
-
-
-
 import {
   Stack,
   Flex,
@@ -78,35 +75,34 @@ import {
   useBreakpointValue,
   Heading,
   Image,
-} from '@chakra-ui/react';
-import { useRouter } from 'next/navigation';
+} from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
   const router = useRouter();
 
   return (
     <Flex height="92vh" background="white">
-
       <VStack
-        w={'full'}
-        justify={'center'}
-        px={useBreakpointValue({ base: 4, md: 8 })}>
-        <Stack maxW={'2xl'} align={'center'} spacing={6}>
-        <Image
-          src="images/bg-banner.gif"
-          alt="college logo"
-          h={"400px"}
-          w={"400px"}
-        />
-        <Heading
+        w={"full"}
+        justify={"center"}
+        px={useBreakpointValue({ base: 4, md: 8 })}
+      >
+        <Stack maxW={"2xl"} align={"center"} spacing={6}>
+          <Image
+            src="images/bg-banner.gif"
+            alt="college logo"
+            h={"400px"}
+            w={"400px"}
+          />
+          <Heading
             fontWeight={600}
             fontSize={{ base: "xl", sm: "2xl", md: "4xl" }}
-                      >
-            Welcome to {" "}
+          >
+            Welcome to{" "}
             <Text as={"span"} color={"green.400"}>
-               Let's Placed Portal
+              Let's Placed Portal
             </Text>
-            
           </Heading>
           <Text color={"gray.500"}>For Your Entire Placement Journey.</Text>
 
@@ -120,7 +116,6 @@ export default function Hero() {
             <Button
               colorScheme={"green"}
               bg={"green.400"}
-
               px={6}
               _hover={{
                 bg: "green.500",
@@ -131,12 +126,10 @@ export default function Hero() {
               _active={{
                 bg: "green.500",
               }}
-              onClick={()=> router.push("/login")}
             >
-              Login
+              Let's begin
             </Button>
-            </Stack>
-    
+          </Stack>
         </Stack>
       </VStack>
     </Flex>

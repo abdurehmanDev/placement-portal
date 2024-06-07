@@ -57,14 +57,6 @@ export default function Login() {
           <Box rounded={"lg"} boxShadow={"lg"} p={8}>
             <Stack spacing={4}>
               <form>
-                {/* <Select
-                  placeholder="Please select your role"
-                  border="1px solid #c9c8c8"
-                >
-                  <option value="admin">Admin</option>
-                  <option value="placementCell">Placement cell</option>
-                  <option value="student">Student</option>
-                </Select> */}
                 <InputControl
                   formId={"email"}
                   label={"Email address"}
@@ -86,7 +78,6 @@ export default function Login() {
                     justify={"space-between"}
                   >
                     <Checkbox>Remember me</Checkbox>
-                    {/* <Link color={"blue.400"}>Forgot password?</Link> */}
                   </Stack>
                   <Button
                     bg={"blue.400"}
