@@ -125,6 +125,8 @@ export default function Footer() {
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
+      // pos={"fixed"}
+      // w={"full"}
     >
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid
@@ -134,7 +136,7 @@ export default function Footer() {
           <Stack spacing={6}>
             <Box>
               <Image
-                src="images/iimt-logo.png"
+                src="images/college-logo.png"
                 alt="college logo"
                 h={"85px"}
                 w={"110px"}

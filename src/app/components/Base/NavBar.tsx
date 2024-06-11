@@ -21,7 +21,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { auth } from "src/app/services/firebase/config";
 import { AiOutlineUser } from "react-icons/ai";
 
-const Links = ["Home", "About", "Contact"];
+const Links = ["Home", "About", "Applications","Contact"];
 
 const NavLink = ({ children, val }: { children: ReactNode, val: string }) => (
   <Link
@@ -51,7 +51,7 @@ export default function NavBar() {
 
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4} w={"full"} pos={"fixed"} zIndex={100}>
         <Flex h={20} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -63,7 +63,7 @@ export default function NavBar() {
           <HStack spacing={8} alignItems={"center"}>
             <Box py={8}>
               <Image
-                src="images/iimt-logo.png"
+                src="images/college-logo.png"
                 alt="college logo"
                 h={"80px"}
                 w={"110px"}

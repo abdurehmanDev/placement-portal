@@ -1,5 +1,5 @@
 "use client"
-import ContactForm from "src/app/components/Base/ContactForm";
+import ContactForm from "src/app/components/common/ContactForm";
 import NavBar from "src/app/components/Base/NavBar";
 import Footer from "src/app/components/Base/Footer";
 import withAuth from "src/app/middleware/withAuth";
